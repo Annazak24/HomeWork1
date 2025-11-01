@@ -1,17 +1,23 @@
 package dto;
+
 import org.openqa.selenium.WebElement;
 import java.time.LocalDate;
 
+public class CourseInfo {
+   private final String name;
+   private final LocalDate date;
 
-public class CourseDetails {
-      public final String name;
-      public final LocalDate startDate;
-      public final WebElement element;
-
-      public CourseInfo(String name, LocalDate startDate, WebElement element) {
-         this.name = name;
-         this.startDate = startDate;
-         this.element = element;
-      }
+   public CourseInfo(String name, LocalDate date, WebElement element) {
+      this.name = name;
+      this.date = date;
    }
+
+   public String getName() {
+      return name;
+   }
+
+   public LocalDate getDate() {
+      return date;
+   }
+}
 

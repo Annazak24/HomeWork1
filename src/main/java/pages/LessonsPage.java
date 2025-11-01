@@ -1,5 +1,5 @@
 package pages;
 
-public class CoursePage {
+public class LessonsPage {
 
 }

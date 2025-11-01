@@ -1,4 +1,86 @@
 package Main;
 
-public class Scenario3 {
-}
+import com.google.inject.Inject;
+import dto.CourseInfo;
+import extensions.UiExtensions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import pages.CatalogPage;
+import waiters.Waiter;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@ExtendWith(UiExtensions.class)
+public class Scenario2 {
+
+   @Inject
+   private CatalogPage catalogPage;
+
+   @Inject
+   private WebDriver driver;
+
+   @Test
+   public void findEarliestAndLatestCoursesTest() {
+
+       catalogPage.open();
+       catalogPage.loadAllCourses();
+
+       String earliestCourseName = catalogPage.getEarliestCourse(catalogPage.getAllCourses());
+       String latestCourseName = catalogPage.getLatestCourse(catalogPage.getAllCourses());
+
+       catalogPage.clickCourseByName(earliestCourseName);
+       String title1 = catalogPage.getCourseTitle();
+       assertEquals(earliestCourseName, title1,
+               String.format("Սպասվում էր '%s', բայց ստացվել է '%s'", earliestCourseName, title1));
+
+
+       driver.navigate().back();
+       catalogPage.clickCourseByName(latestCourseName);
+       String title2 = catalogPage.getCourseTitle();
+       assertEquals(latestCourseName, title2,
+               String.format("Սպասվում էր '%s', բայց ստացվել է '%s'", earliestCourseName, title2));
+
+
+//
+//      // բացում ենք էջը
+//
+//
+//      // ստանում ենք բոլոր կուրսերը
+//      List<CourseInfo> allCourses = catalogPage.getAllCourses();
+//      System.out.println("📘 Найдено курсов: " + allCourses.size());
+//
+//      // գտնում ենք ամենավաղ և ամենաուշ կուրսերը
+//      CourseInfo earliest = catalogPage.getEarliestCourse(allCourses);
+//      CourseInfo latest = catalogPage.getLatestCourse(allCourses);
+//
+//      System.out.println("📅 Ամենավաղ դասընթաց → " + earliest.getName() + " — " + earliest.getStartDate());
+//      System.out.println("📅 Ամենաուշ դասընթաց → " + latest.getName() + " — " + latest.getStartDate());
+//
+//      // բացում ենք ամենավաղ դասընթացը
+//      catalogPage.openCourse(earliest);
+//      catalogPage.verifyCoursePage(earliest.getName());
+//
+//      // վերադառնում ենք նախորդ էջը
+//
+//
+//      // ✅ օգտագործում ենք Waiter՝ սպասելու մինչև էջը բեռնվի
+//      Waiter waiter = new Waiter(driver);
+//      waiter.waitForCondition(driver1 ->
+//          !driver.findElements(
+//                  By.xpath("//div[contains(@class,'sc-hrqzy3-1') and contains(@class,'jEGzDf')]"))
+//              .isEmpty()
+//      );
+//
+//      // նորից ստանում ենք կուրսերի ցանկը, որովհետև նախորդ WebElement-ները "stale" են
+//      List<CourseInfo> refreshedCourses = catalogPage.getAllCourses();
+//      CourseInfo latestRef = catalogPage.getLatestCourse(refreshedCourses);
+//
+//      // բացում ենք ամենաուշ դասընթացը
+//      catalogPage.openCourse(latestRef);
+//      catalogPage.verifyCoursePage(latestRef.getName());
+//   }
+   }}
