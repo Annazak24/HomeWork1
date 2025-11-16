@@ -1,4 +1,4 @@
-package Main;
+package otus;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 import pages.CatalogPage;
 
 @ExtendWith(UiExtensions.class)
-public class scenario2 {
+public class LatestEarliestCourseCheckingTest {
 
    @Inject
    private CatalogPage catalogPage;

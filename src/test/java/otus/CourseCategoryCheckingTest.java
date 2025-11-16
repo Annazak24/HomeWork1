@@ -1,4 +1,4 @@
-package Main;
+package otus;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,7 +10,7 @@ import pages.CatalogPage;
 import pages.MainPage;
 
 @ExtendWith(UiExtensions.class)
-public class scenario3 {
+public class CourseCategoryCheckingTest {
 
    @Inject
    private CatalogPage catalogPage;

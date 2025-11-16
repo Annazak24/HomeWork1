@@ -24,7 +24,7 @@ project/
 │   │   ├── dto/           # Data Transfer Objects
 │   │   └── waiters/       # Custom wait conditions
 │   └── test/java/
-│       └── Main/          # Test scenarios
+│       └── otus/          # Test scenarios
 └── pom.xml
 ```
 

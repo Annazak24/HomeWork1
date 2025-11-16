@@ -1,4 +1,4 @@
-package Main;
+package otus;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -9,14 +9,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import pages.CatalogPage;
 
 @ExtendWith(UiExtensions.class)
-public class scenario1 {
+public class CourseTitleCheckingTest {
 
    @Inject
    private CatalogPage catalogPage;
 
    @Test
    public void findCourseByNameTest() {
-      String courseName = "Vue.js разработчик";
+      String courseName = "Разработка прикладного ПО на Qt и ОС «Аврора»";
 
       catalogPage.open();
       catalogPage.clickCourseByName(courseName);
